@@ -1,57 +1,91 @@
-# Sample Hardhat 3 Beta Project (`mocha` and `ethers`)
+# VestaLink
 
-This project showcases a Hardhat 3 Beta project using `mocha` for tests and the `ethers` library for Ethereum interactions.
+A blockchain-based vesting and upkeep system powered by Hardhat.  
+This project demonstrates secure token vesting schedules, automated upkeep conditions, and integration with Chainlink-style price feeds.
 
-To learn more about the Hardhat 3 Beta, please visit the [Getting Started guide](https://hardhat.org/docs/getting-started#getting-started-with-hardhat-3). To share your feedback, join our [Hardhat 3 Beta](https://hardhat.org/hardhat3-beta-telegram-group) Telegram group or [open an issue](https://github.com/NomicFoundation/hardhat/issues/new) in our GitHub issue tracker.
+---
 
-## Project Overview
+## Highlights
+- **Tests:** 8 passing  
+- **Coverage:** ~78% statements, 75% branches  
+- **Gas:** `createVesting` ~145k, `performUpkeep` ~53k avg  
+- **Deployment:** Local Hardhat node (addresses below)
 
-This example project includes:
+---
 
-- A simple Hardhat configuration file.
-- Foundry-compatible Solidity unit tests.
-- TypeScript integration tests using `mocha` and ethers.js
-- Examples demonstrating how to connect to different types of networks, including locally simulating OP mainnet.
+## Features
+- ERC-20 token with initial supply.
+- Vesting schedules that lock tokens for beneficiaries.
+- Automated upkeep logic to release vested tokens when conditions are met.
+- Integration with a mock price feed (`MockV3Aggregator`).
+- Comprehensive test suite with coverage and gas efficiency analysis.
 
-## Usage
+---
 
-### Running Tests
+## Setup
 
-To run all the tests in the project, execute the following command:
+Clone the repository and install dependencies:
 
-```shell
+git clone <https://github.com/Taniya027/VestaLink>
+cd VestaLink
+npm install
+npx hardhat compile
+
+---
+
+## Running Tests
+
+Run the full test suite:
 npx hardhat test
-```
 
-You can also selectively run the Solidity or `mocha` tests:
+-Test Results
+[Test Results](docs/tests.png)
 
-```shell
-npx hardhat test solidity
-npx hardhat test mocha
-```
+## Coverage
+Generate coverage reports:
+npx hardhat coverage
 
-### Make a deployment to Sepolia
+-Coverage Summary
+[Coverage Report](docs/coverage.png)
 
-This project includes an example Ignition module to deploy the contract. You can deploy this module to a locally simulated chain or to Sepolia.
+## Gas Report
+Gas usage analysis is enabled via hardhat-gas-reporter.
+Run tests to generate the gas report:
+npx hardhat test
 
-To run the deployment to a local chain:
+-Gas Report
+[Gas Report](docs/gas-report.png)
 
-```shell
-npx hardhat ignition deploy ignition/modules/Counter.ts
-```
+## Deployment
+Contracts were deployed locally using Hardhat.
+- Deployer: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+- MockV3Aggregator: 0x5FbDB2315678afecb367f032d93F642f64180aa3
+- VestaLink: 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512
 
-To run the deployment to Sepolia, you need an account with funds to send the transaction. The provided Hardhat configuration includes a Configuration Variable called `SEPOLIA_PRIVATE_KEY`, which you can use to set the private key of the account you want to use.
+- Deployment
+[Deployment](docs/deployment.png)
 
-You can set the `SEPOLIA_PRIVATE_KEY` variable using the `hardhat-keystore` plugin or by setting it as an environment variable.
+---
 
-To set the `SEPOLIA_PRIVATE_KEY` config variable using `hardhat-keystore`:
+## Project Structure
+contracts/        # Solidity contracts
+test/             # Test files (TypeScript/JavaScript)
+scripts/          # Deployment and interaction scripts
+docs/             # Screenshots (coverage, gas, tests, deployment)
 
-```shell
-npx hardhat keystore set SEPOLIA_PRIVATE_KEY
-```
+---
 
-After setting the variable, you can run the deployment with the Sepolia network:
+## Proof of Work
+This repository includes:
+- Clean commit history.
+- Passing tests with coverage.
+- Gas efficiency analysis.
+- Deployment proof with addresses.
+- Screenshots for transparency.
 
-```shell
-npx hardhat ignition deploy --network sepolia ignition/modules/Counter.ts
-```
+---
+
+## License
+MIT License
+
+---
