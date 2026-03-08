@@ -1,6 +1,9 @@
 # VestaLink
 
+Convergence | A Chainlink Hackathon
+
 A blockchain-based vesting and upkeep system powered by Hardhat.  
+
 This project demonstrates secure token vesting schedules, automated upkeep conditions, and integration with Chainlink-style price feeds.
 
 ---
@@ -10,6 +13,17 @@ This project demonstrates secure token vesting schedules, automated upkeep condi
 - **Coverage:** ~78% statements, 75% branches  
 - **Gas:** `createVesting` ~145k, `performUpkeep` ~53k avg  
 - **Deployment:** Local Hardhat node (addresses below)
+
+---
+
+## Chainlink Integration
+This project uses Chainlink services to simulate real‑world workflows:
+
+- [contracts/VestaLink.sol](contracts/VestaLink.sol) — implements vesting logic with **Chainlink upkeep checks**  
+- [contracts/MockV3Aggregator.sol](contracts/MockV3Aggregator.sol) — simulates **Chainlink price feeds** for testing  
+- [scripts/deploy.ts](scripts/deploy.ts) — deploys contracts including Chainlink components
+
+-> This project demonstrates a Chainlink CRE Workflow by integrating Ethereum smart contracts with external price feed data (via MockV3Aggregator) and upkeep automation, showcasing a reproducible workflow that can be simulated locally or deployed on the CRE network.
 
 ---
 
@@ -82,6 +96,24 @@ This repository includes:
 - Gas efficiency analysis.
 - Deployment proof with addresses.
 - Screenshots for transparency.
+
+---
+
+## Challenges
+During development, I ran into several challenges:
+- Resolving strict Hardhat + TypeScript configuration errors  
+- Handling dependency conflicts and plugin version mismatches  
+- Balancing rapid iteration with polished documentation and screenshots for recruiter/judge visibility
+
+## Demo
+A 3–5 minute public demo video showcasing the workflow execution (via CLI and contract interaction) is available here:  
+**[https://www.loom.com/share/0df587410e3d4d52a5e523ada3c9cb7e]**
+
+The demo covers:
+- Running tests (`npx hardhat test`)  
+- Deploying contracts (`npx hardhat run scripts/deploy.ts --network localhost`)  
+- Showing deployment addresses and Chainlink integration  
+- Highlighting screenshots for coverage, gas report, and deployment proof
 
 ---
 
