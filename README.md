@@ -39,7 +39,7 @@ Run the full test suite:
 npx hardhat test
 
 -Test Results
-[Test Results](docs/tests.png)
+[Test Results](docs/test.png)
 
 ## Coverage
 Generate coverage reports:
