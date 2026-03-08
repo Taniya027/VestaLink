@@ -15,9 +15,12 @@
 
 # Typechain output
 /types
+/typechain-types/
 
 # Hardhat coverage reports
 /coverage
+/coverage.json
+
 
 # dotenv environment variables file
 /.env
